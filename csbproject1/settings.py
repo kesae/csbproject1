@@ -23,9 +23,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-q3+=kw-p9_p9=x*@+sw-t!^xh2pi@f=digk)=9ea)4^w&nhyn#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+# Comment the next line out to fix the security misconfiguration flaw
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -122,3 +123,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# URL to redirect the user after logged in
+
+LOGIN_REDIRECT_URL = '/'

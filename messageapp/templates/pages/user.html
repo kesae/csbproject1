@@ -1,0 +1,11 @@
+{% extends 'pages/base.html' %} {% block content %}
+<h2>User</h2>
+<b>Username: </b> {{user.username}} </br>
+<b>Email: </b> {{user.email}}
+<form action='/setuserdata/' method="POST" >
+    <!-- Uncomment the following line as part of a fix for the CSRF flaw -->
+    <!-- {% csrf_token %} -->
+    {{ form }}
+    <input type="submit" value="OK">
+</form>
+{% endblock %}

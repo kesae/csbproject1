@@ -1,0 +1,29 @@
+{% extends 'pages/base.html' %}
+{% block content %}
+
+    <h2>Messages</h2>
+
+    {% for msg in msgs %}
+    <hr>
+    From <b>{{msg.author}}:</b></br>
+    <!-- {{msg.content}} -->
+    {{msg.content|safe}}
+    </br>
+    </br>
+
+    {% endfor %}
+
+    
+    <h2>Send a message</h2>
+    
+    {% if user.is_authenticated %}
+    <form action='post/' method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <textarea name="content" cols="40" rows="5"></textarea><br/>
+        <input type="submit" value="Send"/>
+    </form>
+    {% else %}
+    <p><a href="{% url 'login' %}">Log in</a> to send messages</p>
+    {% endif %}
+{% endblock %}
+

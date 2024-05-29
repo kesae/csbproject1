@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>{% block title %}MessageApp{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'messageapp/style.css' %}" />
+  </head>
+  <body>
+    <h1>MessageApp</h1>
+    <nav>
+      <a href="{% url 'index' %}">Home</a>
+      <a href="{% url 'search' %}">Search</a>
+      {% if not user.is_authenticated %}
+      <a href="{% url 'login' %}">Log in</a>
+      {% else %}
+      <a href="{% url 'user' uid=request.user.id %}"
+        >{{request.user.username}}</a
+      >
+      <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Log Out</button>
+      </form>
+      {% endif %}
+    </nav>
+  </body>
+  {% block content %}{% endblock %}
+</html>
