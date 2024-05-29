@@ -1,2 +1,2 @@
 # csbproject1
-CSB Project I
+A simple and unpolished course project that demonstrates security flaws.
